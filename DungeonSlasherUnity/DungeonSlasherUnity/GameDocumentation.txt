@@ -1,0 +1,13 @@
+Dungeon Slasher Documentation. 
+Game Control: The player can move by pressing the ADSW Keys on their keyboard. With left click he can attack.
+Game Purpose. The player finds himself in a dungeon and wants to find the exit. The aim of the player is to find the exit.
+Defeat, win conditions: The player loses when the goblins kill him and the player wins when he finds the exit of the dungeon.
+Unity Version:2020.3.8f1.
+Assets:
+Enemy:https://assetstore.unity.com/packages/3d/characters/goblin01-188119
+Cursor:https://assetstore.unity.com/packages/2d/textures-materials/basic-rpg-cursors-139404
+Knight:https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/rpg-hero-pbr-hp-polyart-121480
+Dungeon:https://assetstore.unity.com/packages/3d/environments/stylized-hand-painted-dungeon-free-173934
+Stone UI:https://assetstore.unity.com/packages/2d/gui/icons/stone-ui-182526
+Picku Ups:https://assetstore.unity.com/packages/3d/props/simple-collectibles-pack-123092
+Music:https://assetstore.unity.com/packages/audio/music/action-rpg-music-free-85434
