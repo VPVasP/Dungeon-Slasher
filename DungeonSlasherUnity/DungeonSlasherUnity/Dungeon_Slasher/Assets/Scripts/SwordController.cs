@@ -5,7 +5,7 @@ using UnityEngine;
 public class SwordController : MonoBehaviour
 {
     public Animator playerAnim;//reference to our player animator 
-    public LayerMask EnemyLayers;//enemy layers
+    public LayerMask EnemyLayers;//enemyPrefab layers
     Animator SwordAttack1;//refrence to our animator
     public int AttackDamage = 20;
     public int AttackDamage2 = 50;

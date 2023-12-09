@@ -9,7 +9,6 @@ public class HitPlayer : MonoBehaviour
     public LayerMask playerLayer;
     public float nextAttackTime;
     public float attackTime;
-    public KnightMovement ourMove;
    public Collider[] AttackThisPlayer;
     public void AttackOurPlayer()
     {
@@ -17,8 +16,7 @@ public class HitPlayer : MonoBehaviour
         {
           AttackThisPlayer = Physics.OverlapSphere(target.position, nextAttackTime, playerLayer);
             foreach (Collider player in AttackThisPlayer)//we make a foreach so we can attack
-            {
-                  ourMove.TakeDamage(); // we call our move script fuction
+            { 
                 Debug.Log("Enemy attacked Player");
             }
         }

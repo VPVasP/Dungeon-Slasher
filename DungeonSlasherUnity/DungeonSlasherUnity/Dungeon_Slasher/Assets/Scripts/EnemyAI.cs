@@ -6,7 +6,7 @@ public class EnemyAI : MonoBehaviour
 {
     private IEnumerator coroutine; //refrence to our coroutine
     float seconds = 2f;
-    public KnightMovement playerMove;
+    public PlayerController playerController;
     public HitPlayer EnemyAttacksPlayer;
     public EnemyAI EnemyScript;
     public AudioSource GoblinDeath;
@@ -25,8 +25,8 @@ public class EnemyAI : MonoBehaviour
     public bool isAttackingPlayer;
     private void Start()
     {
-        transform.LookAt(target); // enemy look at player
-        AttackTarget = FindObjectOfType<KnightMovement>().transform.position; // we find the knightmovement position
+        transform.LookAt(target); // enemyPrefab look at player
+        AttackTarget = FindObjectOfType<PlayerController>().transform.position; // we find the knightmovement position
     }
     void Update()
     {
@@ -34,8 +34,8 @@ public class EnemyAI : MonoBehaviour
         if (Vector3.Distance(transform.position, target.position) >= minimumDistance)//if the distance is >= the minimum distance
         {
             transform.LookAt(target);
-            transform.position = Vector3.MoveTowards(transform.position, target.position, Speed * Time.deltaTime);//we transform the position of enemy towars our player position
-            enemyAnim.SetBool("IsAttacking", false);//we set the enemy bool isattacking to false distance is >= the minimumDistance
+            transform.position = Vector3.MoveTowards(transform.position, target.position, Speed * Time.deltaTime);//we transform the position of enemyPrefab towars our player position
+            enemyAnim.SetBool("IsAttacking", false);//we set the enemyPrefab bool isattacking to false distance is >= the minimumDistance
          if (Vector3.Distance(transform.position, target.position) <= minimumDistance ) // if it is <= the minimum distance
         {
                 transform.LookAt(target);
@@ -48,15 +48,15 @@ public class EnemyAI : MonoBehaviour
 
         }
     
-     public void LoseHealth(int damage)//enemy loses health
+     public void LoseHealth(int damage)//enemyPrefab loses health
     {
-        EnemyHealth -=damage;// our enemy health -= the damage
-        if (EnemyHealth <= 0)//if enemy health is below zero or equal
+        EnemyHealth -=damage;// our enemyPrefab health -= the damage
+        if (EnemyHealth <= 0)//if enemyPrefab health is below zero or equal
         {
             enemyAnim.SetBool("IsDead", true);//we set the bool to dead is true
             GoblinDeath.Play();
-            EnemyScript.enabled = false;//we disable the enemy script
-            Destroy(this.gameObject,2f);//we destroy the enemy
+            EnemyScript.enabled = false;//we disable the enemyPrefab script
+            Destroy(this.gameObject,2f);//we destroy the enemyPrefab
         }
     }
 
@@ -66,7 +66,7 @@ public class EnemyAI : MonoBehaviour
         {
             isAttackingPlayer = true;
             EnemyAttacksPlayer.AttackOurPlayer();//we attack our player
-         //   playerMove.TakeDamage();
+         //   playerController.TakeDamage();
             Debug.Log("Enemy attacked Player");
         }
     }

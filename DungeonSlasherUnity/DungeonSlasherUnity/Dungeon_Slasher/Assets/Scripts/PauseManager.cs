@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pause : MonoBehaviour
+public class PauseManagers : MonoBehaviour
 {
    // public GameObject PauseButton1;
     public AudioSource backMusic; //our current music
     public AudioSource PauseSound;//our pause music
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUi;
-    public KnightMovement ourMove;//reference to our music
     [SerializeField] private int i;
     public void Start()
     {
@@ -20,15 +19,12 @@ public class Pause : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!GameIsPaused) PauseThis();//if game is not paused we pause else we resume with the same key
-            else resume();
+            if (!GameIsPaused) Pause();//if game is not paused we pause else we Resume with the same key
+            else Resume();
             
         }
-       
-
-
     }
-    public void resume()
+    public void Resume()
     {
    
         backMusic.Play();//we play our normal music
@@ -37,12 +33,12 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1f; //we set the scasle of time to 1
         GameIsPaused = false;
         Cursor.visible = false;//we set the cursor to being visible to false
-        ourMove.enabled = true;//we enable our movement
+        PlayerController.instance.enabled = true;//we enable the movement
     }
-   public  void PauseThis()
+   public  void Pause()
     {
-      
-        ourMove.enabled = false;
+
+        PlayerController.instance.enabled = false;//we disable our movement
         Cursor.visible = true;
         backMusic.Stop();
         PauseSound.Play();
