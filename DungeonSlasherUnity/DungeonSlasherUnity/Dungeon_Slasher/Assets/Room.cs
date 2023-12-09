@@ -12,7 +12,7 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        gizmosPosition = this.transform.position +new Vector3(0,10,0);
+        gizmosPosition = this.transform.position + new Vector3(0,10,0);
         float randomEnemies = Random.Range(1,4);
         float randomCoins = Random.Range(5,20);
         EnemyAndCoinsSpawner(randomEnemies, randomCoins);
@@ -50,7 +50,7 @@ public class Room : MonoBehaviour
                 float offsetZ = Random.Range(-4f, 7f);
 
                 Vector3 randomSpawnPoint = GetRandomPointInCube(new Vector3(offsetX, offsetY, offsetZ));
-                Instantiate(enemyPrefab, randomSpawnPoint, Quaternion.identity);
+                Instantiate(enemyPrefab, randomSpawnPoint, Quaternion.identity,transform);
             }
         for (int i = 0; i < coinsClones; i++)
         {
@@ -61,7 +61,7 @@ public class Room : MonoBehaviour
             float offsetZ = Random.Range(-4f, 7f);
 
             Vector3 randomSpawnPoint = GetRandomPointInCube(new Vector3(offsetX, offsetY, offsetZ));
-            Instantiate(coinsPrefab, randomSpawnPoint, Quaternion.identity);
+            Instantiate(coinsPrefab, randomSpawnPoint, Quaternion.identity,transform);
         }
 
 
