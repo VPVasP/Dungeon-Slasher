@@ -1,27 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManagers : MonoBehaviour
 {
    // public GameObject PauseButton1;
     public AudioSource backMusic; //our current music
     public AudioSource PauseSound;//our pause music
-    public static bool GameIsPaused = false;
+  //  public static bool GameIsPaused = false;
     public GameObject pauseMenuUi;
     [SerializeField] private int i;
     public void Start()
     {
         pauseMenuUi.SetActive(false);
+        Time.timeScale = 1f;
     }
   
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!GameIsPaused) Pause();//if game is not paused we pause else we Resume with the same key
-            else Resume();
-            
+            Pause();
         }
     }
     public void Resume()
@@ -31,9 +31,13 @@ public class PauseManagers : MonoBehaviour
         PauseSound.Stop();//we stop our pause music
         pauseMenuUi.SetActive(false);
         Time.timeScale = 1f; //we set the scasle of time to 1
-        GameIsPaused = false;
         Cursor.visible = false;//we set the cursor to being visible to false
         PlayerController.instance.enabled = true;//we enable the movement
+    }
+    public void Restart()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
    public  void Pause()
     {
@@ -44,6 +48,9 @@ public class PauseManagers : MonoBehaviour
         PauseSound.Play();
         pauseMenuUi.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true;
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

@@ -9,13 +9,26 @@ public class Room : MonoBehaviour
     [SerializeField] private GameObject coinsPrefab;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject[] roomStuffPrefab;
+    [SerializeField] private bool isStartingRoom = false;
     private void Start()
     {
-        gizmosPosition = this.transform.position + new Vector3(0, 10, 0);
-        float randomEnemies = Random.Range(1, 4);
-        float randomCoins = Random.Range(5, 20);
-        float randomStuff = Random.Range(2, 5);
-        EnemyAndCoinsSpawner(randomEnemies, randomCoins, randomStuff);
+        if (!isStartingRoom)
+        {
+            gizmosPosition = this.transform.position + new Vector3(0, 10, 0);
+            float randomEnemies = Random.Range(1, 4);
+            float randomCoins = Random.Range(5, 20);
+            float randomStuff = Random.Range(2, 5);
+
+            EnemyAndCoinsSpawner(randomEnemies, randomCoins, randomStuff);
+        }
+
+      else  if (isStartingRoom)
+        {
+            gizmosPosition = this.transform.position + new Vector3(0, 10, 0);
+            float randomCoins = Random.Range(5, 20);
+            float randomStuff = Random.Range(2, 5);
+            EnemyAndCoinsSpawner(0, randomCoins, randomStuff);
+        }
     }
         void OnDrawGizmos()
         {
