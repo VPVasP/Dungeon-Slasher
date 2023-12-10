@@ -363,23 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b4495d8e72b4446959aa5421cd382e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnim: {fileID: 95922273631522106}
-  EnemyLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  AttackDamage: 20
-  AttackDamage2: 100
-  Sword: {fileID: 1076419909050712}
-  AttackRate: 2
-  nextAttackTime: 0
-  attackPoint: {fileID: 4518362273737254}
-  attackRange: 0
-  enemyscript: {fileID: 0}
-  destroyenemies:
-  - {fileID: 0}
-  - {fileID: 210101111}
-  - {fileID: 1522895597}
-  - {fileID: 812954930}
+  anim: {fileID: 95922273631522106}
 --- !u!65 &15596641
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -448,12 +432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56106234fd4bc704da82aa95321c8feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doors: {fileID: 39759406}
-  realDoor: {fileID: 0}
-  KnightAnim: {fileID: 95922273631522106}
-  DoorText: {fileID: 501487018}
-  NewRoom: {fileID: 1440792542}
-  canPressP: 0
 --- !u!65 &39759409
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2011,11 +1989,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!65 &210101111 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 1511669081, guid: d975a80a8ce6ebc43955de64c2264779, type: 3}
-  m_PrefabInstance: {fileID: 1557142917}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &210101113 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6903208158946631942, guid: d975a80a8ce6ebc43955de64c2264779, type: 3}
@@ -4190,7 +4163,7 @@ PrefabInstance:
       addedObject: {fileID: 15596640}
     - targetCorrespondingSourceObject: {fileID: 1076420036850812, guid: c20397bf1592dc040b827e8716b0bd41, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1076419909050715}
+      addedObject: {fileID: 4518362273737257}
   m_SourcePrefab: {fileID: 100100000, guid: c20397bf1592dc040b827e8716b0bd41, type: 3}
 --- !u!1001 &464092767
 PrefabInstance:
@@ -7150,12 +7123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836f7978fa5c78641addda7510bf1f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doors: {fileID: 767058115}
-  realDoor: {fileID: 0}
-  KnightAnim: {fileID: 95922273631522106}
-  DoorText: {fileID: 501487018}
-  NewRoom: {fileID: 282852175}
-  canPressP: 0
 --- !u!65 &767058118
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7926,11 +7893,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!65 &812954930 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 1511669081, guid: d975a80a8ce6ebc43955de64c2264779, type: 3}
-  m_PrefabInstance: {fileID: 812954922}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &828546586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11564,12 +11526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30334a16d9d2a554bb0dfab212b031f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doors: {fileID: 0}
-  realDoor: {fileID: 0}
-  KnightAnim: {fileID: 0}
-  DoorText: {fileID: 0}
-  NewRoom: {fileID: 0}
-  canPressP: 0
 --- !u!65 &1241511523
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14617,11 +14573,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.99673957, z: 1}
   m_Center: {x: 0, y: 0.6384134, z: 0}
---- !u!65 &1522895597 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 1511669081, guid: d975a80a8ce6ebc43955de64c2264779, type: 3}
-  m_PrefabInstance: {fileID: 1522895589}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1524819936
 GameObject:
   m_ObjectHideFlags: 0
@@ -17300,7 +17251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed67452f76354e4ca84dcab1c2f14d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExitDungeon: {fileID: 0}
 --- !u!65 &1799768476
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17541,6 +17491,7 @@ MonoBehaviour:
   maximumSpeed: 100
   rotationSpeed: 250
   grounded: 0
+  isAttacking: 0
 --- !u!143 &1836164025
 CharacterController:
   m_ObjectHideFlags: 0
@@ -20035,18 +19986,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1076420036850812, guid: c20397bf1592dc040b827e8716b0bd41, type: 3}
   m_PrefabInstance: {fileID: 463607076}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1076419909050715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076419909050712}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b70fd6eb86c068941ab14d5dd0d01493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1556041298305058 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1556040939566342, guid: c20397bf1592dc040b827e8716b0bd41, type: 3}
@@ -20080,11 +20019,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4086279202973348, guid: c20397bf1592dc040b827e8716b0bd41, type: 3}
   m_PrefabInstance: {fileID: 463607076}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4518362273737254 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4518362133102338, guid: c20397bf1592dc040b827e8716b0bd41, type: 3}
-  m_PrefabInstance: {fileID: 463607076}
+--- !u!54 &4518362273737257
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076419909050712}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!95 &95922273631522106 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95922273507661854, guid: c20397bf1592dc040b827e8716b0bd41, type: 3}

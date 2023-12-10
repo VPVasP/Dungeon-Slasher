@@ -605,10 +605,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9675879933aad184a82aebbe033a22d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gizmosPosition: {x: 0, y: 5, z: 0}
   gizmosCubeSize: {x: 250, y: 1, z: 300}
   coinsPrefab: {fileID: 5994949811563477222, guid: 981495a1356316147afb13a3a2febc6a, type: 3}
-  enemyPrefab: {fileID: 6652592519058442819, guid: d975a80a8ce6ebc43955de64c2264779, type: 3}
+  enemyPrefab: {fileID: 8678343030278468629, guid: 725624d7aae7bdd4393a1a52e4045651, type: 3}
+  roomStuffPrefab:
+  - {fileID: 4526632287728210989, guid: 43bed7e521b9f7240b3f3792c316a536, type: 3}
+  - {fileID: 6047669807322394352, guid: b939d4289e5237f4690c8ac22f26213a, type: 3}
+  - {fileID: 6103415843986046691, guid: 3bbe2bd3c4c360a4cbc736830f5e5b53, type: 3}
 --- !u!1 &1407208262830881967
 GameObject:
   m_ObjectHideFlags: 0

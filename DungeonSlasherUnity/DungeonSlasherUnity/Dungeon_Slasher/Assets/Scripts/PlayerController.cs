@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController; //refrence to our controller
     private float originalStepOffset; //our original offset 
     public bool grounded;
+    public bool isAttacking = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -38,8 +39,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) // if left click we attack
         {
             animator.Play("Attack01");//this is for game desing purposes, if he runs he can attack, if i wanted it to not attack when he is running i would set up a bool for that
+            isAttacking = true;
         }
-
+        else
+        {
+            isAttacking = false;
+        }
 
         //we take our inputs
         float horizontalInput = Input.GetAxis("Horizontal");

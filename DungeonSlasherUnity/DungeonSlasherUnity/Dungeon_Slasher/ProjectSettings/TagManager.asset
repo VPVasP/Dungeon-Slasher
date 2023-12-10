@@ -10,6 +10,7 @@ TagManager:
   - Floor
   - Box
   - DoorText
+  - Enemy
   layers:
   - Default
   - TransparentFX

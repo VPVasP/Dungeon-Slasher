@@ -4,43 +4,27 @@ using UnityEngine;
 
 public class SwordController : MonoBehaviour
 {
-    public Animator playerAnim;//reference to our player animator 
-    public LayerMask EnemyLayers;//enemyPrefab layers
-    Animator SwordAttack1;//refrence to our animator
-    public int AttackDamage = 20;
-    public int AttackDamage2 = 50;
-    public GameObject Sword;//our sword game object
-    public float AttackRate = 2f;
-    public float nextAttackTime = 0f;
-    public Transform attackPoint;
-    public float attackRange;
-    public EnemyAI enemyscript;//refrence to our script
-    public Collider[] destroyenemies;//our collider enemies
-    // Start is called before the first frame update
+    public Animator anim;
 
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        HitEnemies();
-    }
-
-    void HitEnemies()
-    {
-        if (this.playerAnim.GetCurrentAnimatorStateInfo(0).IsName("Attack01"))//if we play a certain animation
+        if (collision.collider.CompareTag("Enemy"))
         {
-            destroyenemies = Physics.OverlapSphere(attackPoint.position, attackRange, EnemyLayers);
-            foreach (Collider enemies in destroyenemies)//we create a foreach
+            if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Attack01"))
             {
 
-                enemies.GetComponent<EnemyAI>().LoseHealth(AttackDamage2);//we call the object we hit script to lose health
-                Debug.Log("We hit" + enemies.name);
+                if (collision.collider.GetComponent<EnemyAI>().EnemyHealth > 0)
+                {
+                    collision.collider.GetComponent<EnemyAI>().LoseHealth(5);
+                    Debug.Log(collision.collider.GetComponent<EnemyAI>().EnemyHealth);
+                }
             }
         }
+
+
+
     }
-    
-      
-            
     }
 
  
