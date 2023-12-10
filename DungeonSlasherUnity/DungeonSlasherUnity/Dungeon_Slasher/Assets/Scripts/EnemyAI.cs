@@ -69,11 +69,13 @@ public class EnemyAI : MonoBehaviour
             aud.clip = enemyAudios[1];
             aud.Play();
             enemyAnim.SetTrigger("Dead");
+            Speed = 0;
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             Destroy(this.gameObject, 2f);
             Debug.Log("EnemyDied" + this.gameObject.name);
             isMoving = false;
             isAttackingPlayer = false;
-
+            GameManager.instance.UpdateEnemies();
         }
     }
 

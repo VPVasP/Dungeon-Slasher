@@ -18,7 +18,7 @@ public class CoinsManager : MonoBehaviour
     public void ChangeCoins()
     {
         coin += coinValue; //coinsPrefab + our coinsPrefab value 
-        coinstext.text = " " + coin.ToString(); //we take the int value and we make it a string so it shows in our game 
+        coinstext.text = "Coins " + coin.ToString(); //we take the int value and we make it a string so it shows in our game 
 
     }
 }

@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private float originalStepOffset; //our original offset 
     public bool grounded;
     public bool isAttacking = false;
+    public LayerMask layer;
+    [SerializeField] private bool isgrounded = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isgrounded = isGrounded();
 
         if (Input.GetMouseButtonDown(0)) // if left click we attack
         {
@@ -70,7 +73,16 @@ public class PlayerController : MonoBehaviour
 
 
     }
+    bool isGrounded()
+    {
+        Debug.DrawRay(transform.position, Vector3.down * 0.1f);
+        return Physics.Raycast(new Vector3(
+            transform.position.x,
+            transform.position.y + 0.1f,
+            transform.position.z), Vector3.down, 0.2f, layer);
+    }
 }
+
 
 
   

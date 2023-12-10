@@ -17,9 +17,12 @@ public class Coins : MonoBehaviour
         {
             CoinsManager.instance.ChangeCoins();
             collectCoinSound.Play(); //play the coinsPrefab audio
-               Destroy(this.gameObject,0.1f);//we destroy the coin after all the above are completed
-            Instantiate(PickupEffect, transform.position, transform.rotation);//we instantiate the effect
-            Destroy(PickupEffect);
+            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            this.gameObject.GetComponent<SphereCollider>().enabled = false;
+        GameObject pickupEffectClone=    Instantiate(PickupEffect, transform.position, transform.rotation);//we instantiate the effect
+            Destroy(pickupEffectClone);
+            Destroy(this.gameObject,1f);//we destroy the coin after all the above are completed
+           
 
         }
     }

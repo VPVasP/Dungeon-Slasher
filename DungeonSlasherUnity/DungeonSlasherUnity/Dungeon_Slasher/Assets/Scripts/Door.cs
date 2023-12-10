@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class Door : MonoBehaviour
 {
-    public GameObject openDoorText;
    [SerializeField] private GameObject[] rooms;
     public Vector3 spawnRoomPosition;
     [SerializeField] private bool hasEntered = false;
@@ -16,9 +15,6 @@ public class Door : MonoBehaviour
     private void Start()
     {
         rooms = GameManager.instance.rooms;
-        openDoorText = GameObject.FindGameObjectWithTag("DoorText");
-        openDoorText.GetComponent<Image>().enabled = false;
-        openDoorText.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
         spawnRoomPosition = this.transform.position + new Vector3(0, 0, 210);
         dialogueSentences = GameManager.instance.dialogueSentences;
     }
@@ -27,8 +23,7 @@ public class Door : MonoBehaviour
         Debug.Log("We are inside");
         if (other.gameObject.CompareTag("Player") && !hasEntered) // if tag is player
         {
-            openDoorText.GetComponent<Image>().enabled = true;
-            openDoorText.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
+           
             Instantiate(rooms[Random.Range(0, rooms.Length)], spawnRoomPosition, Quaternion.identity);
             string randomSentence = dialogueSentences[Random.Range(0, dialogueSentences.Length)];
             GameManager.instance.StartMonologue.SetActive(true);//we set it false
@@ -40,8 +35,7 @@ public class Door : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        openDoorText.GetComponent<Image>().enabled = false;
-        openDoorText.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+       
         // GameManager.instance.StartMonologue.SetActive(false);//we set it false
         Destroy(this.gameObject, 2f);
     }

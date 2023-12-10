@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public float seconds = 2f; //our float seconds
     public string[] dialogueSentences;
     public GameObject[] rooms;
+    public TextMeshProUGUI enemiesKilledText;
+    public int enemiesKilled;
     private void Awake()
     {
         instance = this;
@@ -24,6 +26,8 @@ public class GameManager : MonoBehaviour
         StartMonologue.GetComponentInChildren<TextMeshProUGUI>().text = "How did i end up here?I need to find a way out...";
         coroutine = StartGameEnumerator(2f);//we say that the startenumator is equal to coroutine and the time 2 seconds
         StartCoroutine(coroutine);//we call the coroutine
+        enemiesKilled = 0;
+        enemiesKilledText.text = "Enemies Killed: "+ enemiesKilled.ToString();
     }
 
     IEnumerator StartGameEnumerator(float seconds)
@@ -32,5 +36,10 @@ public class GameManager : MonoBehaviour
         StartMonologue.SetActive(false);//we disable the gameobject
         PlayerController.instance.enabled = true;//we disable our movement
         PlayerCanvas.SetActive(true);
+    }
+    public void UpdateEnemies()
+    {
+        enemiesKilled += 1;
+        enemiesKilledText.text ="Enemies Killed: " + enemiesKilled.ToString();
     }
 }
