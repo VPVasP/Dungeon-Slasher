@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     public bool isMoving = false;
     private AudioSource aud;
   [SerializeField]  private AudioClip[] enemyAudios;
+    private bool isHurt = false;
     private void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -24,39 +25,45 @@ public class EnemyAI : MonoBehaviour
         enemyAnim = GetComponent<Animator>();
     }
 
-   
+
     void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, target.position);
-        float randomAttackValue = Random.Range(5, 10);
-        if (distanceToPlayer > minimumDistance)
-        {
-            transform.LookAt(target);
-            transform.position = Vector3.MoveTowards(transform.position, target.position, Speed * Time.deltaTime);
-            isMoving = true;
-            enemyAnim.SetBool("isAttacking", false);
-        }
-        else
-        {
-            isMoving = false;
-          
-            if (Time.time >= nextAttackTime)
+            float distanceToPlayer = Vector3.Distance(transform.position, target.position);
+            float randomAttackValue = Random.Range(5, 10);
+
+            if (distanceToPlayer > minimumDistance)
             {
-                aud.clip = enemyAudios[0];
-                aud.Play();
-                isAttackingPlayer = true;
-                enemyAnim.SetBool("isAttacking", true);
-              target.GetComponent<PlayerStats>().LoseHealth(randomAttackValue);
-                Debug.Log("AttackingPlayer");
-                nextAttackTime = Time.time + timeBetweenAttacks;
+                transform.LookAt(target);
+                transform.position = Vector3.MoveTowards(transform.position, target.position, Speed * Time.deltaTime);
+                isMoving = true;
+                enemyAnim.SetBool("isAttacking", false);
+            }
+            else
+            {
+                isMoving = false;
+
+                if (Time.time >= nextAttackTime&&isHurt==false)
+                {
+                    aud.clip = enemyAudios[0];
+                    aud.Play();
+                    isAttackingPlayer = true;
+                    enemyAnim.SetBool("isAttacking", true);
+                    target.GetComponent<PlayerStats>().LoseHealth(randomAttackValue);
+                    Debug.Log("AttackingPlayer");
+                    nextAttackTime = Time.time + timeBetweenAttacks;
+
+                }
             }
         }
-    }
-        public void LoseHealth(float damage)
+    
+    public void LoseHealth(float damage)
     {
+      
         EnemyHealth -= damage;
         enemyAnim.SetTrigger("Hurt");
         Debug.Log("Enemy Attacked");
+        isAttackingPlayer = false;
+        isHurt = true;
         if (EnemyHealth <= 0)
         {
             aud.clip = enemyAudios[1];
