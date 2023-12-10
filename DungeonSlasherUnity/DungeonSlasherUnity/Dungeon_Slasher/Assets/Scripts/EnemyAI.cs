@@ -28,7 +28,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, target.position);
-
+        float randomAttackValue = Random.Range(5, 10);
         if (distanceToPlayer > minimumDistance)
         {
             transform.LookAt(target);
@@ -46,12 +46,13 @@ public class EnemyAI : MonoBehaviour
                 aud.Play();
                 isAttackingPlayer = true;
                 enemyAnim.SetBool("isAttacking", true);
+              target.GetComponent<PlayerStats>().LoseHealth(randomAttackValue);
                 Debug.Log("AttackingPlayer");
                 nextAttackTime = Time.time + timeBetweenAttacks;
             }
         }
     }
-        public void LoseHealth(int damage)
+        public void LoseHealth(float damage)
     {
         EnemyHealth -= damage;
         enemyAnim.SetTrigger("Hurt");

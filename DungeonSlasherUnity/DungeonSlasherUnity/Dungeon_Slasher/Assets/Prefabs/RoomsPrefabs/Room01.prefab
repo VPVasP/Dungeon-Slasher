@@ -612,6 +612,7 @@ MonoBehaviour:
   - {fileID: 4526632287728210989, guid: 43bed7e521b9f7240b3f3792c316a536, type: 3}
   - {fileID: 6047669807322394352, guid: b939d4289e5237f4690c8ac22f26213a, type: 3}
   - {fileID: 6103415843986046691, guid: 3bbe2bd3c4c360a4cbc736830f5e5b53, type: 3}
+  door: {fileID: 1634337141139076519}
 --- !u!1 &1407208262830881967
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,8 +2062,9 @@ GameObject:
   - component: {fileID: 2766930456041871686}
   - component: {fileID: 7095497048976288349}
   - component: {fileID: 7170947544073369619}
+  - component: {fileID: 6890299808826871145}
   m_Layer: 0
-  m_Name: TriggerDoor
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2154,6 +2156,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4080149, y: 2.2950897, z: 1.8815616}
   m_Center: {x: 4.0755744e-15, y: 1.1481465, z: 0.821131}
+--- !u!114 &6890299808826871145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928866939142105615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47df3f85eb0a5684f9b97db24211dd06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openDoorText: {fileID: 0}
+  rooms: []
+  spawnRoomPosition: {x: 0, y: 0, z: 0}
+  hasEntered: 0
+  dialogueSentences: []
 --- !u!1 &7021623975531382391
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,23 +20,24 @@ public class PlayerStats : MonoBehaviour
     }
     private void Update()
     {
+        health = Mathf.Clamp(health, 0, 100);
         if (health <= 0)
         {
             Die();
         }
     }
-    public void LoseHealth()
+    public void LoseHealth(float healthLoss)
     {
-        float randomLoseHealth = Random.Range(5,10);
-        health -= randomLoseHealth;
+        health -=healthLoss;
+        healthText.text = "Health: " + health.ToString();
     }
     public void Die()
     {
-        healthText.enabled = true;
-        this.enabled = false;
-        anim.SetTrigger("Death"); //we play the death animation
+        healthText.enabled = false;
+        PlayerController.instance.enabled = false;
+        anim.SetTrigger("Dead"); //we play the death animation
         deathScreen.SetActive(true); //we set active the death panel
-        coroutine = DelayScene(2f);//we say that the DelayScene is equal to coroutine and the time 2 seconds
+        coroutine = DelayScene(1f);//we say that the DelayScene is equal to coroutine and the time 2 seconds
         StartCoroutine(coroutine);//we call the coroutine
     }
     IEnumerator DelayScene(float seconds)

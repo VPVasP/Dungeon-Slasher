@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private IEnumerator coroutine; //refrence to our coroutine
     public GameObject StartMonologue; //the gameobject
     public float seconds = 2f; //our float seconds
+    public string[] dialogueSentences;
+    public GameObject[] rooms;
     private void Awake()
     {
         instance = this;

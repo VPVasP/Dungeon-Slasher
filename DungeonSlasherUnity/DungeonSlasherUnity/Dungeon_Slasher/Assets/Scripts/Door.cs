@@ -8,17 +8,19 @@ using UnityEngine.UI;
 public class Door : MonoBehaviour
 {
     public GameObject openDoorText;
-    public GameObject[] rooms;
+   [SerializeField] private GameObject[] rooms;
     public Vector3 spawnRoomPosition;
     [SerializeField] private bool hasEntered = false;
-    public string[] dialogueSentences;
+    [SerializeField] private string[] dialogueSentences;
     private IEnumerator coroutine; //refrence to our coroutine
     private void Start()
     {
+        rooms = GameManager.instance.rooms;
         openDoorText = GameObject.FindGameObjectWithTag("DoorText");
         openDoorText.GetComponent<Image>().enabled = false;
         openDoorText.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
         spawnRoomPosition = this.transform.position + new Vector3(0, 0, 210);
+        dialogueSentences = GameManager.instance.dialogueSentences;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -41,12 +43,13 @@ public class Door : MonoBehaviour
         openDoorText.GetComponent<Image>().enabled = false;
         openDoorText.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
         // GameManager.instance.StartMonologue.SetActive(false);//we set it false
-        Destroy(this.gameObject, 3f);
+        Destroy(this.gameObject, 2f);
     }
 
     IEnumerator DisableTextEnumerator(float seconds)
     {
         yield return new WaitForSeconds(seconds);//we wait for specific time
         GameManager.instance.StartMonologue.SetActive(false);
+
     }
 }
