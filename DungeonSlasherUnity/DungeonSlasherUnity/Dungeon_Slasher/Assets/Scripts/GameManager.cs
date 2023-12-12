@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(coroutine);//we call the coroutine
         enemiesKilled = 0;
         enemiesKilledText.text = "Enemies Killed: "+ enemiesKilled.ToString();
+        PlaytimeManager.instance.enabled = false;
     }
 
     IEnumerator StartGameEnumerator(float seconds)
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
         StartMonologue.SetActive(false);//we disable the gameobject
         PlayerController.instance.enabled = true;//we disable our movement
         PlayerCanvas.SetActive(true);
+        PlaytimeManager.instance.enabled = true;
     }
     public void UpdateEnemies()
     {
