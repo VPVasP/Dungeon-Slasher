@@ -15,7 +15,7 @@ public class Door : MonoBehaviour
     private void Start()
     {
         rooms = GameManager.instance.rooms;
-        spawnRoomPosition = this.transform.position + new Vector3(0, 0, 210);
+        spawnRoomPosition = this.transform.position + new Vector3(0, 0, 200);
         dialogueSentences = GameManager.instance.dialogueSentences;
     }
     private void OnTriggerEnter(Collider other)

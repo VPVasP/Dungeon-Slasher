@@ -346,15 +346,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400074, guid: 741f73214c8e59045b42ebac4be91444, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.6
+      value: -92.522896
       objectReference: {fileID: 0}
     - target: {fileID: 400074, guid: 741f73214c8e59045b42ebac4be91444, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 16.8
       objectReference: {fileID: 0}
     - target: {fileID: 400074, guid: 741f73214c8e59045b42ebac4be91444, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.5
+      value: 5.9027405
       objectReference: {fileID: 0}
     - target: {fileID: 400074, guid: 741f73214c8e59045b42ebac4be91444, type: 3}
       propertyPath: m_LocalRotation.w
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 50
   target: {fileID: 0}
-  minimumDistance: 25
+  minimumDistance: 28
   timeBetweenAttacks: 1
   enemyAnim: {fileID: 8678343030269101983}
   EnemyHealth: 100

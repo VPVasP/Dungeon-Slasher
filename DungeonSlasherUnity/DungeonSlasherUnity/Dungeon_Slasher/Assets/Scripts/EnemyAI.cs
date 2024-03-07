@@ -30,29 +30,37 @@ public class EnemyAI : MonoBehaviour
     {
             float distanceToPlayer = Vector3.Distance(transform.position, target.position);
             float randomAttackValue = Random.Range(5, 10);
+        if (distanceToPlayer > minimumDistance)
+        {
+            isMoving = true;
+            transform.LookAt(target);
+            transform.position = Vector3.MoveTowards(transform.position, target.position, Speed * Time.deltaTime);
+            enemyAnim.SetBool("isAttacking", false);
+        }
+        if (distanceToPlayer < minimumDistance)
+        {
+            transform.LookAt(target);
+            isMoving = false;
 
-            if (distanceToPlayer > minimumDistance)
+            if (Time.time >= nextAttackTime && isHurt == false && target.GetComponent<PlayerStats>().isDead==false)
             {
-                transform.LookAt(target);
-                transform.position = Vector3.MoveTowards(transform.position, target.position, Speed * Time.deltaTime);
-                isMoving = true;
-                enemyAnim.SetBool("isAttacking", false);
+                aud.clip = enemyAudios[0];
+                aud.Play();
+                isAttackingPlayer = true;
+                enemyAnim.SetBool("isAttacking", true);
+                target.GetComponent<PlayerStats>().LoseHealth(randomAttackValue);
+                target.GetComponent<Animator>().SetTrigger("Hurt");
+                Debug.Log("AttackingPlayer");
+                nextAttackTime = Time.time + timeBetweenAttacks;
+
             }
-            else
+        else if (target.GetComponent<PlayerStats>().health<=0)
             {
-                isMoving = false;
+                target.GetComponent<PlayerStats>().isDead = true;
+                 Debug.Log("DIED");
+            }
 
-                if (Time.time >= nextAttackTime&&isHurt==false)
-                {
-                    aud.clip = enemyAudios[0];
-                    aud.Play();
-                    isAttackingPlayer = true;
-                    enemyAnim.SetBool("isAttacking", true);
-                    target.GetComponent<PlayerStats>().LoseHealth(randomAttackValue);
-                    Debug.Log("AttackingPlayer");
-                    nextAttackTime = Time.time + timeBetweenAttacks;
 
-                }
             }
         }
     
@@ -75,6 +83,7 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("EnemyDied" + this.gameObject.name);
             isMoving = false;
             isAttackingPlayer = false;
+            this.enabled = false;
             GameManager.instance.UpdateEnemies();
         }
     }

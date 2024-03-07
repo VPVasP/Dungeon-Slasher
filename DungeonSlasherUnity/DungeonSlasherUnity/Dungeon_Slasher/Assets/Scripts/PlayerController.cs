@@ -18,7 +18,9 @@ public class PlayerController : MonoBehaviour
     public bool grounded;
     public bool isAttacking = false;
     public LayerMask layer;
-    [SerializeField] private bool isgrounded = false;
+    [SerializeField] bool isGrounded = false;
+    [SerializeField] float groundDistance = 0.6f;
+    public LayerMask groundMask;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -37,8 +39,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isgrounded = isGrounded();
-
+       
         if (Input.GetMouseButtonDown(0)) // if left click we attack
         {
             animator.Play("Attack01");//this is for game desing purposes, if he runs he can attack, if i wanted it to not attack when he is running i would set up a bool for that
@@ -73,14 +74,7 @@ public class PlayerController : MonoBehaviour
 
 
     }
-    bool isGrounded()
-    {
-        Debug.DrawRay(transform.position, Vector3.down * 0.1f);
-        return Physics.Raycast(new Vector3(
-            transform.position.x,
-            transform.position.y + 0.1f,
-            transform.position.z), Vector3.down, 0.2f, layer);
-    }
+    
 }
 
 

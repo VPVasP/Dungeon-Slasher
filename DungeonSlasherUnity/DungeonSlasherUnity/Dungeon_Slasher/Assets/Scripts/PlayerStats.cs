@@ -10,7 +10,9 @@ public class PlayerStats : MonoBehaviour
     public TextMeshProUGUI healthText;
     private Animator anim;
     public GameObject deathScreen;
-    private IEnumerator coroutine; //refrence to our coroutine
+    public bool isDead;
+    [SerializeField] private GameObject deathEffect;
+    [SerializeField] private GameObject[] playerMeshes;
     private void Start()
     {
         health = 100;
@@ -21,9 +23,10 @@ public class PlayerStats : MonoBehaviour
     private void Update()
     {
         health = Mathf.Clamp(health, 0, 100);
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
             Die();
+          
         }
     }
     public void LoseHealth(float healthLoss)
@@ -33,16 +36,25 @@ public class PlayerStats : MonoBehaviour
     }
     public void Die()
     {
+        isDead = true;
         healthText.enabled = false;
         PlayerController.instance.enabled = false;
-        anim.SetTrigger("Dead"); //we play the death animation
-        deathScreen.SetActive(true); //we set active the death panel
-        coroutine = DelayScene(1f);//we say that the DelayScene is equal to coroutine and the time 2 seconds
-        StartCoroutine(coroutine);//we call the coroutine
+        deathScreen.SetActive(true);
+        foreach (GameObject playermeshesObject in playerMeshes)
+        {
+            playermeshesObject.SetActive(false);
+        }
+
+        anim.SetTrigger("Dead");
+        Vector3 newPos = new Vector3(0f, 3f, 0f);
+        Instantiate(deathEffect, transform.position + newPos, Quaternion.identity);
+
+        Invoke("RestartScene", 3f);
     }
-    IEnumerator DelayScene(float seconds)
+
+    private void RestartScene()
     {
-        yield return new WaitForSeconds(seconds);//we wait for specific time
         SceneManager.LoadScene("Game");
     }
+  
 }

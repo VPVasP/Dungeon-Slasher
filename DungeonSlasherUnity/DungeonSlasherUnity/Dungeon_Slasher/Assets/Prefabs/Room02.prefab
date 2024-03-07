@@ -1228,7 +1228,7 @@ GameObject:
   - component: {fileID: 5103924774023193452}
   - component: {fileID: 2838445062497085943}
   - component: {fileID: 29763738767835668}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Floor
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1576,6 +1576,7 @@ MonoBehaviour:
   - {fileID: 4526632287728210989, guid: 43bed7e521b9f7240b3f3792c316a536, type: 3}
   - {fileID: 6047669807322394352, guid: b939d4289e5237f4690c8ac22f26213a, type: 3}
   - {fileID: 6103415843986046691, guid: 3bbe2bd3c4c360a4cbc736830f5e5b53, type: 3}
+  isStartingRoom: 0
 --- !u!1 &5498819985686794174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,7 +1961,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47df3f85eb0a5684f9b97db24211dd06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openDoorText: {fileID: 0}
   rooms: []
   spawnRoomPosition: {x: 0, y: 0, z: 0}
   hasEntered: 0

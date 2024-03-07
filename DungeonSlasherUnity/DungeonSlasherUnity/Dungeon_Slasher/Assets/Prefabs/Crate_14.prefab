@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate_14
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 84d44352b3d109a45b705049de4e0ab2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 84d44352b3d109a45b705049de4e0ab2, type: 3}
       propertyPath: m_LocalScale.x
       value: 400
@@ -71,9 +75,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 84d44352b3d109a45b705049de4e0ab2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7301638565659568352}
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: 84d44352b3d109a45b705049de4e0ab2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3699280105751046236}
   m_SourcePrefab: {fileID: 100100000, guid: 84d44352b3d109a45b705049de4e0ab2, type: 3}
 --- !u!1 &6047669807322394352 stripped
 GameObject:
@@ -101,15 +102,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.028528938, y: 0.02852892, z: 0.020346}
   m_Center: {x: 0.00008220925, y: 0.000027186234, z: 0.00000056717545}
---- !u!114 &3699280105751046236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6047669807322394352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6d1a93d3b0ce9b458c0a9a7181db07c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
