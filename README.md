@@ -1,15 +1,10 @@
 # Dungeon Slasher
 
 Dungeon Slasher is a game created for a college project. Step into the shoes of a brave knight and battle through endless random dungeon rooms and see how long he survives.
+- You can try the game on Itch.io: (https://itchiovp.itch.io/dungeon-slasher)
 
-## How to Play:
-
-1. **Movement:** Use arrow keys to move the knight.
-2. **Combat:**
-   - Attack: Left Click
-4. **Endless Random Rooms:** Face endless waves of enemies in each randomly generated room.
-5. **Collect Coins System:** Collect coins to get a higher score.
-
-## Key Features:
-
-- **Random Dungeon Generation:** Explore endless dungeons and try to survive the enemies that are spawned there.
+![Screenshots](https://img.itch.zone/aW1hZ2UvMjM0MzU0NC8xNDI5MzkxNS5wbmc=/original/fGsJ5d.png)
+![Screenshots](https://img.itch.zone/aW1hZ2UvMjM0MzU0NC8xNDI5MzkxNi5wbmc=/original/duaMaD.png)
+![Screenshots](https://img.itch.zone/aW1hZ2UvMjM0MzU0NC8xNDI5MzkxOC5wbmc=/original/vEj9uT.png)
+![Screenshots](https://img.itch.zone/aW1hZ2UvMjM0MzU0NC8xNDI5MzkxOS5wbmc=/original/uh7kwc.png)
+  
