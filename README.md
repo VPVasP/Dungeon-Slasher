@@ -1,6 +1,11 @@
 # Dungeon Slasher
 
-Dungeon Slasher is a game created for a college project. Step into the shoes of a brave knight and battle through endless random dungeon rooms and see how long he survives.
+Created Dungeon Slasher, a top down game where you
+play as a brave knight battling through endless random
+dungeons battling enemies with the goal of surviving as
+long as you can. This project was created during the first semester of my first year in college.
+
+- Technologies Used: Unity, C#
 - You can try the game on Itch.io: (https://itchiovp.itch.io/dungeon-slasher)
 
 ![Screenshots](https://img.itch.zone/aW1hZ2UvMjM0MzU0NC8xNDI5MzkxNS5wbmc=/original/fGsJ5d.png)
