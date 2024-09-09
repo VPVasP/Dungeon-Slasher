@@ -9615,11 +9615,10 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 1
-  isGrounded: 0
-  groundDistance: 0.6
   groundMask:
     serializedVersion: 2
     m_Bits: 0
+  playerHealth: 100
 --- !u!224 &2831657945693098312
 RectTransform:
   m_ObjectHideFlags: 0
